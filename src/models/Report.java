@@ -62,6 +62,12 @@ public class Report {
     @Column(name = "updated_at", nullable = false)
     private Timestamp updated_at;
 
+    @Column(name = "began_at", nullable = false)
+    private String began_at;
+
+    @Column(name = "finished_at", nullable = false)
+    private String finished_at;
+
     public Integer getId() {
         return id;
     }
@@ -116,5 +122,21 @@ public class Report {
 
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
+    }
+
+    public String getBegan_at() {
+        return began_at;
+    }
+
+    public void setBegan_at(String began_at) {
+        this.began_at = began_at;
+    }
+
+    public String getFinished_at() {
+        return finished_at;
+    }
+
+    public void setFinished_at(String finished_at) {
+        this.finished_at = finished_at;
     }
 }

@@ -16,14 +16,18 @@
                     <th class="report_name">氏名</th>
                     <th class="report_date">日付</th>
                     <th class="report_title">タイトル</th>
+                    <th class="report_began_at">通勤時間</th>
+                    <th class="report_finish_at">退勤時間</th>
                     <th class="report_action">操作</th>
                 </tr>
                 <c:forEach var="report" items="${reports}" varStatus="status">
                     <tr class="row${status.count % 2}">
-                        <th class="report_name"><c:out value="${report.employee.name}" /></th>
-                        <th class="report_date"><fmt:formatDate value='${report.report_date}' pattern='YYYY-MM-dd' /></th>
-                        <th class="report_title">${report.title}</th>
-                        <th class="report_action"><a href="<c:url value='/reports/show?id=${report.id}' />">詳細を見る</a></th>
+                        <td class="report_name"><c:out value="${report.employee.name}" /></td>
+                        <td class="report_date"><fmt:formatDate value='${report.report_date}' pattern='YYYY-MM-dd' /></td>
+                        <td class="report_title">${report.title}</td>
+                        <td class="report_began_at">${report.began_at}</td>
+                        <td class="report_finished_at">${report.finished_at}</td>
+                        <td class="report_action"><a href="<c:url value='/reports/show?id=${report.id}' />">詳細を見る</a></td>
                     </tr>
                 </c:forEach>
             </tbody>

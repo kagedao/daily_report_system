@@ -67,6 +67,8 @@ public class EmployeesCreateServlet extends HttpServlet {
 
                 RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/employees/new.jsp");
                 rd.forward(request, response);
+                // 完結したデータを送るのによい
+                // redirect だとエラーデータを送れない
             } else {
                 em.getTransaction().begin();
                 em.persist(e);
@@ -75,6 +77,10 @@ public class EmployeesCreateServlet extends HttpServlet {
                 request.getSession().setAttribute("flush", "登録が完了しました!");
 
                 response.sendRedirect(request.getContextPath() + "/employees/index");
+                // JSPを直接送れる
+                // Redirect だとサーバーを二往復する
+                // forwardだとindexの情報を詰め込まないといけない
+                // new に 出勤時間、退勤時間を追加
             }
         }
     }
